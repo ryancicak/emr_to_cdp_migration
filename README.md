@@ -124,3 +124,5 @@ select count(1) as a, leg1dest from unique_tickets group by leg1dest order by a 
 
 --You'll now see the new 50k rows (being 100k rows total)
 ```
+
+Now within CDP, I can access this data not only in CDW, but in ANY of the services (CML, CDE, CDF, COD, DataHub).  The steps above, I completed in CDP with RAZ enabled, instructions: https://community.cloudera.com/t5/Community-Articles/CDW-RAZ-Enabled-Add-S3-Bucket-in-Two-Steps-That-was-EASY/ta-p/370400
