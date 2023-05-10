@@ -1,4 +1,4 @@
-# emr_to_cdp_migration
+# emr_to_cdp_parquet
 Migrating data in EMR to CDP.  In this tutorial, we'll take Parquet snappy files written from EMR Spark into S3, and read those files within CDP (Cloudera Data Warehouse) Impala.  We'll create a Virtual Warehouse and create an external Impala table pointing to the same S3 location.  Running a few DDL statements, we'll be able to read the file(s) from within CDP. 
 
 To prove this out (Migrating data from EMR into CDP), there will be two loads, each load being 50k rows.  
