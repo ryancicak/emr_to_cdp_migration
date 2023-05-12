@@ -79,6 +79,8 @@ REFRESH unique_tickets; --or a single partition at a time (if a single partition
 
 INVALIDATE METADATA unique_tickets; --https://docs.cloudera.com/runtime/7.2.16/impala-sql-reference/topics/impala-invalidate-metadata.html
 
+--ALTER TABLE unique_tickets RECOVER PARTITIONS; If I had partitions, I'd use this to recover the partitions
+
 --You'll now see 50k rows within CDW
 select count(1) from unique_tickets;
 
@@ -118,6 +120,7 @@ CREATE external TABLE IF NOT EXISTS unique_tickets (ticketnumber BIGINT, leg1fli
 STORED AS PARQUET LOCATION 's3a://ryancicak/airlines/unique_tickets' ;
 REFRESH unique_tickets; # or a single partition at a time (if a single partition was loaded): https://docs.cloudera.com/runtime/7.2.16/impala-sql-reference/topics/impala-refresh.html
 INVALIDATE METADATA unique_tickets; # https://docs.cloudera.com/runtime/7.2.16/impala-sql-reference/topics/impala-invalidate-metadata.html
+--ALTER TABLE unique_tickets RECOVER PARTITIONS; If I had partitions, I'd use this to recover the partitions
 
 select count(1) from unique_tickets;
 select count(1) as a, leg1dest from unique_tickets group by leg1dest order by a desc;
